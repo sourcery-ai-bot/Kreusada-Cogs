@@ -1,0 +1,10 @@
+{
+	"author": ["Kreusada"],
+	"description": "Get member access to guild categories, text and voice channels.",
+    "install_msg": "Thanks for installing, have fun. Please refer to my docs if you need any help: https://kreusadacogs.readthedocs.io/en/latest/access.html",
+	"short": "Get member access to guild categories, text and voice channels.",
+	"name": "Access",
+	"tags": ["Access", "Permissions", "View", "Connect", "Voice", "Text", "Category", "Channel"],
+	"type": "COG",
+	"end_user_data_statement": "This cog does not persistently store data or metadata about users."
+}
