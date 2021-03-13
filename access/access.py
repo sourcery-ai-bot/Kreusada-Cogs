@@ -1,7 +1,7 @@
 import discord
 
 from redbot.core import commands
-from redbot.core.utils.chat_formatting import box, bold
+from redbot.core.utils.chat_formatting import box
 
 class Access(commands.Cog):
     """
