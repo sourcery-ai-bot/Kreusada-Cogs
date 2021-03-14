@@ -126,27 +126,25 @@ class Access(commands.Cog):
         can_member2 = []
         cant_member1 = []
         cant_member2 = []
-        user1 = await self.bot.get_or_fetch_member(guild=ctx.guild, member_id=member1.id)
         for c in build:
             if access_type.startswith("v"):
-                if c.permissions_for(user1).connect:
+                if c.permissions_for(member1).connect:
                     can_member1.append(c.name)
                 else:
                     cant_member1.append(c.name)
             else:
-                if c.permissions_for(user1).view_channel:
+                if c.permissions_for(member1).view_channel:
                     can_member1.append(c.name)
                 else:
                     cant_member1.append(c.name)
-        user2 = await self.bot.get_or_fetch_member(guild=ctx.guild, member_id=member2.id)
         for c in build:
             if access_type.startswith("v"):
-                if c.permissions_for(user2).connect:
+                if c.permissions_for(member2).connect:
                     can_member2.append(c.name)
                 else:
                     cant_member2.append(c.name)
             else:
-                if c.permissions_for(user2).view_channel:
+                if c.permissions_for(member2).view_channel:
                     can_member2.append(c.name)
                 else:
                     cant_member2.append(c.name)
@@ -155,25 +153,25 @@ class Access(commands.Cog):
             lang="asciidoc",
         )
         if can_member1:
-            p1 = f"Has access ({len(can_member1)}):\n" + "+ " + ", ".join(
+            p1 = f"{member1.name} has access to {len(can_member1)} {access_type}:\n" + "+ " + ", ".join(
                 f"{prefix}{x}" for x in sorted(can_member1)
             )
         else:
             p1 = ""
         if cant_member1:
-            p2 = f"No access ({len(cant_member1)}):\n" + "- " + ", ".join(
+            p2 = f"{member1.name} has NOT got access to {len(cant_member1)} {access_type}:\n" + "- " + ", ".join(
                 f"{prefix}{x}" for x in sorted(cant_member1)
             )
         else:
             p2 = ""
         if can_member2:
-            p3 = f"Has access ({len(can_member2)}):\n" + "+ " + ", ".join(
+            p3 = f"{member2.name} has access to {len(can_member2)} {access_type}:\n" + "+ " + ", ".join(
                 f"{prefix}{x}" for x in sorted(can_member2)
             )
         else:
             p3 = ""
         if cant_member2:
-            p4 = f"No access ({len(cant_member2)}):\n" + "- " + ", ".join(
+            p4 = f"{member2.name} has NOT got access to {len(cant_member2)} {access_type}:\n" + "- " + ", ".join(
                 f"{prefix}{x}" for x in sorted(cant_member2)
             )
         else:
